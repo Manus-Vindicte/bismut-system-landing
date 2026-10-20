@@ -10,6 +10,8 @@ The home page presents a stable animated crystal with six individually focusable
 
 The six facet destinations are separate local HTML documents (`idee.html`, `launcher.html`, `engine.html`, `graphics.html`, `entwicklung.html`, and `system.html`) linked from the crystal and shared header. Each page has a home link and a contextual “Mehr erfahren” link to the next relevant page. The Graphics page calls out the Engine explicitly and links directly to its detail page. CSS cross-document View Transitions provide the crystal-style morph where the browser supports them; reduced-motion users receive no transition. All assets remain relative and work as a static `dist/` site.
 
+The idea page also presents three direct entry cards for the Launcher, Engine and Graphics pages, with a short description of each area.
+
 The Launcher source currently identifies `frontend/src/assets/brand/bismut-b.png` and its 512px variant as the 3D Bismut mark; its icon component describes these PNGs as the new B logo. No Bismut vector master exists in the inspected source. `dist/assets/bismut-logo.svg` therefore embeds the exact original 512px PNG as a data URI in an SVG wrapper. The appearance stays exact and self-contained, but its artwork remains raster rather than infinitely scalable vector paths. The Launcher repository remains read-only for this task.
 
 ## Crystal motion — 2026-10-20

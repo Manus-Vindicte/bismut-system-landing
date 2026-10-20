@@ -16,3 +16,14 @@ body[data-view="home"] #crystal{transform:translate3d(0,var(--crystal-float,0px)
 ::view-transition-group(root){animation-duration:.72s}
 .brand-logo{width:32px;height:32px;object-fit:contain;display:block}
 @media(prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation:none}}
+
+.related-pages{margin:30px 0 6px}
+.related-pages>h3{font:8px 'IBM Plex Mono',monospace;letter-spacing:.16em;color:#c7aa73;margin:0 0 12px}
+.related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.related-card{position:relative;display:flex;flex-direction:column;gap:9px;min-height:150px;padding:16px 14px;border:1px solid #d9c49b35;background:linear-gradient(145deg,#ede4d30a,#9dbb5e08);transition:border-color .2s,background .2s,transform .2s}
+.related-card:hover,.related-card:focus-visible{border-color:#9dbb5eaa;background:#9dbb5e12;transform:translateY(-2px)}
+.related-card-label{font:7px 'IBM Plex Mono',monospace;letter-spacing:.11em;color:#c7aa73}
+.related-card strong{font-size:13px;font-weight:500;color:#ede4d3}
+.related-card-description{font-size:10px;line-height:1.65;color:#b3a78f}
+.related-card-arrow{position:absolute;right:13px;top:13px;color:#b4cf7d;font-size:13px}
+@media(max-width:700px){.related-grid{grid-template-columns:1fr}.related-card{min-height:0;padding:14px}.related-card-description{max-width:42em}}

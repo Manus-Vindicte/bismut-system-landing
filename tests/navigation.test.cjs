@@ -21,7 +21,7 @@ function fixture(reduced = true, initialPage = 'home') {
       classList: { add: c => classes.add(c), remove: c => classes.delete(c), contains: c => classes.has(c) },
       setAttribute: (k, v) => attributes.set(k, v), removeAttribute: k => attributes.delete(k),
       getAttribute: k => attributes.get(k),
-      append() {}, replaceChildren(...children) { this.children = children; },
+      append(...children) { this.children = [...(this.children || []), ...children]; }, replaceChildren(...children) { this.children = children; },
       focus() { this.focused = true; },
       addEventListener(name, fn) { this[name] = fn; },
       querySelector(selector) { return get(selector); },
@@ -89,6 +89,16 @@ test('a direct subpage load renders its own content without a hash route', () =>
   assert.match(f.get('#content-title').innerHTML, /Oberfläche/);
   assert.match(f.get('#next-page').href, /graphics\.html$/);
   assert.equal(f.get('#next-page').textContent, 'Mehr erfahren: Graphics ↗');
+});
+
+test('the idea page shows direct entry cards for Launcher, Engine and Graphics', () => {
+  const f = fixture(true, 'vision');
+  const related = f.get('#related-pages');
+  assert.equal(related.hidden, false);
+  const section = related.children[0];
+  const grid = section.children[1];
+  assert.deepEqual(grid.children.map(card => card.href), ['launcher.html', 'engine.html', 'graphics.html']);
+  assert.deepEqual(grid.children.map(card => card.children[1].textContent), ['Welten und Modpacks', 'Laufzeit und Renderer', 'Grafik direkt im Spiel']);
 });
 
 test('the Mehr erfahren links form a complete chain across all six subpages', () => {
