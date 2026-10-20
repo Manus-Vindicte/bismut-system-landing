@@ -18,6 +18,40 @@ let destination = 'home';
 let transitionId = 0;
 let animations = [];
 let returnRoute = 'system';
+let crystalFrame = 0;
+let crystalPaused = false;
+let pointerX = 0;
+let pointerY = 0;
+
+function stopCrystalMotion(reset = false) {
+  if (crystalFrame) cancelAnimationFrame(crystalFrame);
+  crystalFrame = 0;
+  if (reset) {
+    menu.style.removeProperty('--crystal-float');
+    menu.style.removeProperty('--crystal-roll');
+    menu.style.removeProperty('--crystal-x');
+    menu.style.removeProperty('--crystal-y');
+    menu.style.removeProperty('--crystal-glint');
+  }
+}
+
+function moveCrystal(time) {
+  crystalFrame = 0;
+  if (destination !== 'home' || reduceMotion.matches || document.hidden || crystalPaused) return;
+  const seconds = time / 1000;
+  menu.style.setProperty('--crystal-float', `${(Math.sin(seconds * 0.9) * 5).toFixed(2)}px`);
+  menu.style.setProperty('--crystal-roll', `${(-5 + Math.sin(seconds * 0.42) * 2.2).toFixed(2)}deg`);
+  menu.style.setProperty('--crystal-x', `${(Math.sin(seconds * 0.58) * 5 + pointerY * 2).toFixed(2)}deg`);
+  menu.style.setProperty('--crystal-y', `${(Math.cos(seconds * 0.53) * 6 + pointerX * 2).toFixed(2)}deg`);
+  menu.style.setProperty('--crystal-glint', (1 + Math.sin(seconds * 0.78) * 0.11).toFixed(3));
+  crystalFrame = requestAnimationFrame(moveCrystal);
+}
+
+function syncCrystalMotion() {
+  if (destination === 'home' && !reduceMotion.matches && !document.hidden && !crystalPaused) {
+    if (!crystalFrame) crystalFrame = requestAnimationFrame(moveCrystal);
+  } else stopCrystalMotion(reduceMotion.matches || destination !== 'home');
+}
 function render(route) {
   const isHome = route === 'home';
   body.dataset.view = route;
@@ -58,11 +92,13 @@ function render(route) {
   document.title = isHome ? 'Bismut System — Deine Welt. Dein Setup.' : `${pages[route].label} — Bismut System`;
   current = route;
   destination = route;
+  syncCrystalMotion();
 }
 async function navigate(route, { historyMode = 'push', focus = true } = {}) {
   if (route !== 'home' && !pages[route]) route = 'home';
   if (route === destination) return;
   destination = route;
+  stopCrystalMotion();
   const id = ++transitionId;
   animations.forEach(a => a.cancel()); animations = [];
   body.classList.add('is-morphing');
@@ -102,6 +138,16 @@ document.addEventListener('click', event => {
   event.preventDefault(); navigate(link.dataset.route);
 });
 document.querySelector('#menu-toggle').addEventListener('click', () => navigate(destination === 'home' ? returnRoute : 'home'));
+window.addEventListener('pointermove', event => {
+  pointerX = (event.clientX / window.innerWidth - 0.5) * 2;
+  pointerY = (event.clientY / window.innerHeight - 0.5) * 2;
+}, { passive: true });
+menu.addEventListener('pointerenter', () => { crystalPaused = true; stopCrystalMotion(); });
+menu.addEventListener('pointerleave', () => { crystalPaused = false; syncCrystalMotion(); });
+menu.addEventListener('focusin', () => { crystalPaused = true; stopCrystalMotion(); });
+menu.addEventListener('focusout', () => { crystalPaused = menu.contains(document.activeElement); syncCrystalMotion(); });
+document.addEventListener('visibilitychange', syncCrystalMotion);
+reduceMotion.addEventListener('change', syncCrystalMotion);
 window.addEventListener('keydown', event => { if (event.key === 'Escape' && destination !== 'home') navigate('home'); });
 window.addEventListener('popstate', () => navigate(location.hash.slice(1) || 'home', { historyMode: 'none' }));
 window.addEventListener('hashchange', () => navigate(location.hash.slice(1) || 'home', { historyMode: 'none' }));

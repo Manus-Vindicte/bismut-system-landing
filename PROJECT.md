@@ -6,6 +6,10 @@ Design follows the supplied PrismHero reference: dark background, serif headline
 
 Navigation selects one view inside a fixed viewport. Facets route to idea, launcher, engine, graphics, development and system overview; inactive content is hidden/inert. A polygon expands across the stage and contracts as the selected content enters, while the crystal shifts to the side. Hash URLs, browser history, focus restoration, Escape and reduced-motion preference are supported. Content scrolls within the active view when necessary. No downloads, waitlist, or external product integrations are claimed. Google Fonts is optional; local fallbacks are defined.
 
+## Crystal motion — 2026-10-20
+
+The home-view crystal now floats, tilts gently in 3D, and varies its brightness. Pointer position adds a small amount of parallax. Motion pauses while the pointer or keyboard focus is on the navigation, while the document is hidden, and during content morphs. A reduced-motion preference disables the continuous animation. This is local-only work; no Site source upload or deployment is intended.
+
 ## Facet navigation — 2026-10-20
 
 User-requested change: replace the scrolling landing page with menu-selected content views and morph transitions. Owned files: `dist/index.html`, `dist/style.css`, `dist/app.js`, and this document. Starting branch `main`, clean baseline `f113764`. No product repository changes.
