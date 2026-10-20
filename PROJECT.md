@@ -10,6 +10,10 @@ Navigation selects one view inside a fixed viewport. Facets route to idea, launc
 
 The home-view crystal now floats, tilts gently in 3D, and varies its brightness. Pointer position adds a small amount of parallax. Motion pauses while the pointer or keyboard focus is on the navigation, while the document is hidden, and during content morphs. A reduced-motion preference disables the continuous animation. This is local-only work; no Site source upload or deployment is intended.
 
+## Launcher palette alignment — 2026-10-20
+
+The local Site color palette follows the active Launcher CSS in `frontend/src/styles/bismuth.css`, `tokens.css` and `typography.css`: near-black brown `#0c0906`, warm surface `#171109`, cream text `#ede4d3`, muted text `#b3a78f`, olive active green `#9dbb5e`, and amber `#dda34b`. The crystal's translucent facets combine warm glass, olive and amber. The Site keeps its independent CSS and does not import Launcher styles or assets. This change is local-only.
+
 ## Facet navigation — 2026-10-20
 
 User-requested change: replace the scrolling landing page with menu-selected content views and morph transitions. Owned files: `dist/index.html`, `dist/style.css`, `dist/app.js`, and this document. Starting branch `main`, clean baseline `f113764`. No product repository changes.
