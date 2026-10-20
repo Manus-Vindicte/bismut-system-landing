@@ -160,7 +160,7 @@ test('rapid facet selection and return cancel stale transitions', async () => {
   assert.equal(f.get('#content-title').focused, true);
 });
 
-test('idle movement pauses for menu interaction and respects reduced motion', async () => {
+test('crystal parallax stays active on hover, pauses for keyboard focus and respects reduced motion', async () => {
   const f = fixture(false);
   const menu = f.get('#facet-navigation');
   assert.equal(f.frames.size, 1);
@@ -170,9 +170,11 @@ test('idle movement pauses for menu interaction and respects reduced motion', as
   f.events.pointermove({ clientX: 1000, clientY: 0 });
   f.frame(3000);
   assert.notEqual(menu.style.getPropertyValue('--crystal-roll'), previous);
-  menu.pointerenter();
+  assert.equal(menu.pointerenter, undefined, 'pointer hover must not stop the crystal animation');
+  assert.equal(f.frames.size, 1);
+  menu.focusin();
   assert.equal(f.frames.size, 0);
-  menu.pointerleave();
+  menu.focusout();
   assert.equal(f.frames.size, 1);
   await f.run("navigate('engine')");
   assert.equal(f.frames.size, 0);
@@ -182,4 +184,13 @@ test('idle movement pauses for menu interaction and respects reduced motion', as
   f.motion.change();
   assert.equal(f.frames.size, 0);
   assert.equal(menu.style.getPropertyValue('--crystal-roll'), undefined);
+});
+
+test('the centered hero crystal has visible sway and staggered facet light animation', () => {
+  const css = fs.readFileSync(path.join(__dirname, '../dist/style.css'), 'utf8');
+  assert.match(css, /landing-hero \.crystal-navigation\{animation:hero-crystal-sway 12s ease-in-out infinite\}/);
+  assert.match(css, /@keyframes hero-crystal-sway/);
+  assert.match(css, /@keyframes facet-glint/);
+  assert.match(css, /landing-hero \.crystal-faces a:nth-of-type\(6\) polygon\{animation-delay:-6s\}/);
+  assert.match(css, /prefers-reduced-motion:reduce\)\{body\[data-page="home"\] \.landing-hero \.crystal-navigation,body\[data-page="home"\] \.landing-hero \.crystal-faces a polygon\{animation:none!important\}/);
 });

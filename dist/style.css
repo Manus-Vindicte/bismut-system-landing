@@ -109,3 +109,13 @@ body[data-page="home"] .landing-hero #home-title{top:48%;z-index:2;font-size:cla
 body[data-page="home"] .landing-hero #home-title span{margin-top:17px}
 body[data-page="home"] .landing-hero .crystal-navigation{top:49%;z-index:3;width:min(72vw,570px,calc((100svh - 260px)*1.08));filter:drop-shadow(0 0 75px #a69ab730)}
 body[data-page="home"] .landing-hero .crystal-faces text{opacity:0}
+body[data-page="home"] .landing-hero .crystal-navigation{animation:hero-crystal-sway 12s ease-in-out infinite}
+body[data-page="home"] .landing-hero .crystal-faces a polygon{animation:facet-glint 7.2s ease-in-out infinite}
+body[data-page="home"] .landing-hero .crystal-faces a:nth-of-type(2) polygon{animation-delay:-1.2s}
+body[data-page="home"] .landing-hero .crystal-faces a:nth-of-type(3) polygon{animation-delay:-2.4s}
+body[data-page="home"] .landing-hero .crystal-faces a:nth-of-type(4) polygon{animation-delay:-3.6s}
+body[data-page="home"] .landing-hero .crystal-faces a:nth-of-type(5) polygon{animation-delay:-4.8s}
+body[data-page="home"] .landing-hero .crystal-faces a:nth-of-type(6) polygon{animation-delay:-6s}
+@keyframes hero-crystal-sway{0%,100%{transform:translate(-50%,-50%) rotate(-1.5deg)}50%{transform:translate(-50%,calc(-50% - 10px)) rotate(1.5deg)}}
+@keyframes facet-glint{0%,36%,100%{opacity:.72}56%{opacity:1}}
+@media(prefers-reduced-motion:reduce){body[data-page="home"] .landing-hero .crystal-navigation,body[data-page="home"] .landing-hero .crystal-faces a polygon{animation:none!important}}

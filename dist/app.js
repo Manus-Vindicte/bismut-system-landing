@@ -39,11 +39,11 @@ function moveCrystal(time) {
   crystalFrame = 0;
   if (destination !== 'home' || reduceMotion.matches || document.hidden || crystalPaused) return;
   const seconds = time / 1000;
-  menu.style.setProperty('--crystal-float', `${(Math.sin(seconds * 0.9) * 5).toFixed(2)}px`);
-  menu.style.setProperty('--crystal-roll', `${(-5 + Math.sin(seconds * 0.42) * 2.2).toFixed(2)}deg`);
-  menu.style.setProperty('--crystal-x', `${(Math.sin(seconds * 0.58) * 5 + pointerY * 2).toFixed(2)}deg`);
-  menu.style.setProperty('--crystal-y', `${(Math.cos(seconds * 0.53) * 6 + pointerX * 2).toFixed(2)}deg`);
-  menu.style.setProperty('--crystal-glint', (1 + Math.sin(seconds * 0.78) * 0.11).toFixed(3));
+  menu.style.setProperty('--crystal-float', `${(Math.sin(seconds * 0.72) * 8).toFixed(2)}px`);
+  menu.style.setProperty('--crystal-roll', `${(-5 + Math.sin(seconds * 0.38) * 3).toFixed(2)}deg`);
+  menu.style.setProperty('--crystal-x', `${(Math.sin(seconds * 0.52) * 7 + pointerY * 2).toFixed(2)}deg`);
+  menu.style.setProperty('--crystal-y', `${(Math.cos(seconds * 0.47) * 9 + pointerX * 2).toFixed(2)}deg`);
+  menu.style.setProperty('--crystal-glint', (1 + Math.sin(seconds * 0.68) * 0.15).toFixed(3));
   crystalFrame = requestAnimationFrame(moveCrystal);
 }
 
@@ -156,8 +156,6 @@ window.addEventListener('pointermove', event => {
   pointerX = (event.clientX / window.innerWidth - 0.5) * 2;
   pointerY = (event.clientY / window.innerHeight - 0.5) * 2;
 }, { passive: true });
-menu.addEventListener('pointerenter', () => { crystalPaused = true; stopCrystalMotion(); });
-menu.addEventListener('pointerleave', () => { crystalPaused = false; syncCrystalMotion(); });
 menu.addEventListener('focusin', () => { crystalPaused = true; stopCrystalMotion(); });
 menu.addEventListener('focusout', () => { crystalPaused = menu.contains(document.activeElement); syncCrystalMotion(); });
 document.addEventListener('visibilitychange', syncCrystalMotion);
