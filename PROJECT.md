@@ -18,6 +18,8 @@ The Launcher source currently identifies `frontend/src/assets/brand/bismut-b.png
 
 The home-view crystal floats, tilts gently in 3D, and varies its brightness. Pointer position adds a small amount of parallax. Project art floats and rotates, while crystal edges and orbit lines animate. Project sections reveal as they enter view; a scroll progress line and active header jump link track the page. A reduced-motion preference disables continuous animation and smooth scrolling. This is local-only work; no Site source upload or deployment is intended.
 
+The landing hero's center returns to the original composition: a large smoky glass crystal behind the Bismut / System wordmark. Its six facets remain jump links to the three product sections and three supporting pages, while their visual labels are hidden in the hero so the central mark stays clear. This refinement is local-only.
+
 ## Launcher palette alignment — 2026-10-20
 
 The local Site color palette follows the active Launcher CSS in `frontend/src/styles/bismuth.css`, `tokens.css` and `typography.css`: near-black brown `#0c0906`, warm surface `#171109`, cream text `#ede4d3`, muted text `#b3a78f`, olive active green `#9dbb5e`, and amber `#dda34b`. The crystal's translucent facets combine warm glass, olive and amber. The Site keeps its independent CSS and does not import Launcher styles or assets. This change is local-only.

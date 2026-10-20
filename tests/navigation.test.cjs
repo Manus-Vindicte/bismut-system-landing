@@ -97,6 +97,17 @@ test('the landing page has direct jump links to all three project sections', () 
   assert.match(home, /href="graphics\.html"/);
 });
 
+test('the hero centers the faceted crystal behind the Bismut system wordmark', () => {
+  const root = path.join(__dirname, '../dist');
+  const home = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  const css = fs.readFileSync(path.join(root, 'style.css'), 'utf8');
+  assert.match(home, /<h1 id="home-title">Bismut<span>SYSTEM<\/span><\/h1>/);
+  assert.match(home, /<nav id="facet-navigation" class="crystal-navigation"/);
+  assert.match(css, /landing-hero #home-title\{top:48%/);
+  assert.match(css, /landing-hero \.crystal-navigation\{top:49%/);
+  assert.match(css, /landing-hero \.crystal-faces text\{opacity:0\}/);
+});
+
 test('a direct subpage load renders its own content without a hash route', () => {
   const f = fixture(true, 'engine');
   assert.equal(f.body.dataset.view, 'engine');
