@@ -4,7 +4,7 @@ Standalone presentation concept owned by this Site. Source and deployable static
 
 Design follows the supplied PrismHero reference: dark background, serif headline, faceted crystal, soft spectral highlights. The crystal is now a stable SVG navigation surface with six individually focusable, labeled facets. Translucent gradients suggest glass; this does not implement the reference's physical Three.js transmission material.
 
-The home page presents a stable animated crystal with six individually focusable, labeled facet links and direct Launcher, Engine and Graphics calls to action. Those three product pages have their own detailed overview, feature sections, development-state notes and links to related products. The idea, development and system pages remain supporting information pages. No downloads, waitlist, or external product integrations are claimed. Google Fonts is optional; local fallbacks are defined.
+The home page is a long-form motion landing page. Its crystal, header navigation and hero calls to action jump to the Launcher, Engine and Graphics project sections; each section links onward to a standalone product detail page. The idea, development and system pages remain supporting information pages. No downloads, waitlist, or external product integrations are claimed. Google Fonts is optional; local fallbacks are defined.
 
 ## Static subpages and original mark — 2026-10-20
 
@@ -14,9 +14,9 @@ The idea page also presents three direct entry cards for the Launcher, Engine an
 
 The Launcher source currently identifies `frontend/src/assets/brand/bismut-b.png` and its 512px variant as the 3D Bismut mark; its icon component describes these PNGs as the new B logo. No Bismut vector master exists in the inspected source. `dist/assets/bismut-logo.svg` therefore embeds the exact original 512px PNG as a data URI in an SVG wrapper. The appearance stays exact and self-contained, but its artwork remains raster rather than infinitely scalable vector paths. The Launcher repository remains read-only for this task.
 
-## Crystal motion — 2026-10-20
+## Crystal and landing motion — 2026-10-20
 
-The home-view crystal now floats, tilts gently in 3D, and varies its brightness. Pointer position adds a small amount of parallax. Motion pauses while the pointer or keyboard focus is on the navigation, while the document is hidden, and during content morphs. A reduced-motion preference disables the continuous animation. This is local-only work; no Site source upload or deployment is intended.
+The home-view crystal floats, tilts gently in 3D, and varies its brightness. Pointer position adds a small amount of parallax. Project art floats and rotates, while crystal edges and orbit lines animate. Project sections reveal as they enter view; a scroll progress line and active header jump link track the page. A reduced-motion preference disables continuous animation and smooth scrolling. This is local-only work; no Site source upload or deployment is intended.
 
 ## Launcher palette alignment — 2026-10-20
 

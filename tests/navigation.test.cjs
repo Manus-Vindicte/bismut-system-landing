@@ -36,8 +36,8 @@ function fixture(reduced = true, initialPage = 'home') {
   function get(selector) { if (!nodes.has(selector)) nodes.set(selector, node()); return nodes.get(selector); }
   const body = node(); body.dataset.page = initialPage;
   const context = vm.createContext({
-    document: { body, hidden: false, activeElement: null, querySelector: get, querySelectorAll: () => [], createElement: node, addEventListener: (name, fn) => events[name] = fn },
-    window: { innerWidth: 1000, innerHeight: 800, addEventListener: (name, fn) => events[name] = fn },
+    document: { body, hidden: false, activeElement: null, documentElement: { scrollHeight: 800 }, querySelector: get, querySelectorAll: () => [], createElement: node, addEventListener: (name, fn) => events[name] = fn },
+    window: { innerWidth: 1000, innerHeight: 800, scrollY: 0, addEventListener: (name, fn) => events[name] = fn },
     location: { hash: '' }, history: { pushState: (state, title, hash) => history.push(hash) },
     matchMedia: () => motion, setTimeout,
     requestAnimationFrame: fn => { frames.set(++nextFrame, fn); return nextFrame; },
@@ -69,7 +69,7 @@ test('each facet selects exactly one view, updates content and restores focus', 
 
 test('each crystal facet opens its own local HTML document with shared navigation', () => {
   const root = path.join(__dirname, '../dist');
-  const routes = { vision: 'idee.html', launcher: 'launcher.html', engine: 'engine.html', graphics: 'graphics.html', development: 'entwicklung.html', system: 'system.html' };
+  const routes = { vision: 'idee.html', development: 'entwicklung.html', system: 'system.html' };
   const home = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
   for (const [route, file] of Object.entries(routes)) {
     const page = fs.readFileSync(path.join(root, file), 'utf8');
@@ -78,15 +78,23 @@ test('each crystal facet opens its own local HTML document with shared navigatio
     assert.match(page, /href="index\.html"[^>]*class="back-link"/);
     assert.match(page, /href="launcher\.html" data-route="launcher"/);
   }
+  for (const project of ['launcher', 'engine', 'graphics']) {
+    assert.match(home, new RegExp(`href="#${project}"`));
+    assert.match(home, new RegExp(`id="${project}"`));
+    assert.doesNotMatch(home, new RegExp(`href="#${project}" data-route=`));
+  }
   assert.match(fs.readFileSync(path.join(root, 'style.css'), 'utf8'), /@view-transition\{navigation:auto\}/);
 });
 
-test('the landing page has direct entry CTAs for each standalone product page', () => {
+test('the landing page has direct jump links to all three project sections', () => {
   const home = fs.readFileSync(path.join(__dirname, '../dist/index.html'), 'utf8');
-  for (const [label, file] of [['Launcher entdecken', 'launcher.html'], ['Engine entdecken', 'engine.html'], ['Graphics entdecken', 'graphics.html']]) {
-    assert.match(home, new RegExp(`href="${file}">${label}`));
+  for (const project of ['launcher', 'engine', 'graphics']) {
+    assert.match(home, new RegExp(`href="#${project}">${project === 'graphics' ? 'Graphics' : project[0].toUpperCase() + project.slice(1)} entdecken`));
   }
   assert.match(fs.readFileSync(path.join(__dirname, '../dist/style.css'), 'utf8'), /\.product-entrances\{[^}]*pointer-events:auto/);
+  assert.match(home, /href="launcher\.html"/);
+  assert.match(home, /href="engine\.html"/);
+  assert.match(home, /href="graphics\.html"/);
 });
 
 test('a direct subpage load renders its own content without a hash route', () => {

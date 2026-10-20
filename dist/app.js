@@ -165,3 +165,43 @@ reduceMotion.addEventListener('change', syncCrystalMotion);
 window.addEventListener('keydown', event => { if (event.key === 'Escape' && destination !== 'home') location.href = 'index.html'; });
 const initial = body.dataset.page || location.hash.slice(1);
 render(pages[initial] ? initial : 'home');
+
+if (body.dataset.page === 'home') {
+  const jumpLinks = [...document.querySelectorAll('[data-jumplink]')];
+  const projectSections = [...document.querySelectorAll('.project-section')];
+  const reveals = [...document.querySelectorAll('.motion-reveal')];
+  const reduced = reduceMotion.matches;
+
+  if (!reduced && 'IntersectionObserver' in window) {
+    body.classList.add('motion-ready');
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.14 });
+    reveals.forEach(section => revealObserver.observe(section));
+    const sectionObserver = new IntersectionObserver(entries => {
+      const active = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!active) return;
+      jumpLinks.forEach(link => {
+        if (link.dataset.jumplink === active.target.id) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    }, { rootMargin: '-25% 0px -55% 0px', threshold: [0, 0.1, 0.35] });
+    projectSections.forEach(section => sectionObserver.observe(section));
+  } else reveals.forEach(section => section.classList.add('is-visible'));
+
+  let progressFrame = 0;
+  const updateProgress = () => {
+    progressFrame = 0;
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    body.style.setProperty('--page-progress', String(scrollable > 0 ? window.scrollY / scrollable : 0));
+  };
+  window.addEventListener('scroll', () => {
+    if (progressFrame) return;
+    progressFrame = requestAnimationFrame(updateProgress);
+  }, { passive: true });
+  updateProgress();
+}
