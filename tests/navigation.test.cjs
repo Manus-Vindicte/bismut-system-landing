@@ -4,7 +4,7 @@ const vm = require('node:vm');
 const fs = require('node:fs');
 const path = require('node:path');
 
-function fixture(reduced = true) {
+function fixture(reduced = true, initialPage = 'home') {
   const nodes = new Map();
   const events = {};
   const history = [];
@@ -34,7 +34,7 @@ function fixture(reduced = true) {
     };
   }
   function get(selector) { if (!nodes.has(selector)) nodes.set(selector, node()); return nodes.get(selector); }
-  const body = node();
+  const body = node(); body.dataset.page = initialPage;
   const context = vm.createContext({
     document: { body, hidden: false, activeElement: null, querySelector: get, querySelectorAll: () => [], createElement: node, addEventListener: (name, fn) => events[name] = fn },
     window: { innerWidth: 1000, innerHeight: 800, addEventListener: (name, fn) => events[name] = fn },
@@ -67,18 +67,27 @@ test('each facet selects exactly one view, updates content and restores focus', 
   assert.equal(f.get('[data-route="system"]').focused, true);
 });
 
-test('history navigation does not create new entries; Escape returns to the menu', async () => {
-  const f = fixture();
-  await f.run("navigate('launcher')");
-  assert.deepEqual(f.history, ['#launcher']);
-  f.run("location.hash = '#engine'"); f.events.popstate();
+test('each crystal facet opens its own local HTML document with shared navigation', () => {
+  const root = path.join(__dirname, '../dist');
+  const routes = { vision: 'idee.html', launcher: 'launcher.html', engine: 'engine.html', graphics: 'graphics.html', development: 'entwicklung.html', system: 'system.html' };
+  const home = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  for (const [route, file] of Object.entries(routes)) {
+    const page = fs.readFileSync(path.join(root, file), 'utf8');
+    assert.match(home, new RegExp(`href="${file}" data-route="${route}"`));
+    assert.match(page, new RegExp(`data-page="${route}"`));
+    assert.match(page, /href="index\.html"[^>]*class="back-link"/);
+    assert.match(page, /href="launcher\.html" data-route="launcher"/);
+  }
+  assert.match(fs.readFileSync(path.join(root, 'style.css'), 'utf8'), /@view-transition\{navigation:auto\}/);
+});
+
+test('a direct subpage load renders its own content without a hash route', () => {
+  const f = fixture(true, 'engine');
   assert.equal(f.body.dataset.view, 'engine');
-  assert.equal(f.history.length, 1);
-  f.events.keydown({ key: 'Escape' });
-  assert.equal(f.body.dataset.view, 'home');
-  assert.equal(f.get('#menu-toggle').getAttribute('aria-expanded'), 'true');
-  await f.run("navigate('unknown')");
-  assert.equal(f.body.dataset.view, 'home');
+  assert.equal(f.get('#home-view').hidden, true);
+  assert.equal(f.get('#content-view').hidden, false);
+  assert.match(f.get('#content-title').innerHTML, /Oberfläche/);
+  assert.match(f.get('#next-page').href, /graphics\.html$/);
 });
 
 test('rapid facet selection and return cancel stale transitions', async () => {

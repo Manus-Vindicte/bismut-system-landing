@@ -6,3 +6,13 @@
 #crystal{transform-origin:50% 50%;transform-style:preserve-3d;will-change:transform}
 body[data-view="home"] #crystal{transform:translate3d(0,var(--crystal-float,0px),0) rotateZ(var(--crystal-roll,-5deg)) rotateX(var(--crystal-x,0deg)) rotateY(var(--crystal-y,0deg));filter:brightness(var(--crystal-glint,1));transition:none}
 @media(prefers-reduced-motion:reduce){body[data-view="home"] #crystal{transform:rotate(-5deg);filter:none;will-change:auto}}
+
+/* Document-level crystal morph between the local static subpages. */
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:facet-out .55s cubic-bezier(.65,0,.25,1) both}
+::view-transition-new(root){animation:facet-in .72s cubic-bezier(.2,.8,.2,1) both}
+@keyframes facet-out{to{opacity:.25;filter:blur(8px);transform:scale(.96);clip-path:polygon(46% 36%,58% 43%,53% 57%,41% 49%)}}
+@keyframes facet-in{from{opacity:.35;filter:blur(8px);transform:scale(1.035);clip-path:polygon(46% 36%,58% 43%,53% 57%,41% 49%)}}
+::view-transition-group(root){animation-duration:.72s}
+.brand-logo{width:32px;height:32px;object-fit:contain;display:block}
+@media(prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation:none}}

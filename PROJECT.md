@@ -4,7 +4,13 @@ Standalone presentation concept owned by this Site. Source and deployable static
 
 Design follows the supplied PrismHero reference: dark background, serif headline, faceted crystal, soft spectral highlights. The crystal is now a stable SVG navigation surface with six individually focusable, labeled facets. Translucent gradients suggest glass; this does not implement the reference's physical Three.js transmission material.
 
-Navigation selects one view inside a fixed viewport. Facets route to idea, launcher, engine, graphics, development and system overview; inactive content is hidden/inert. A polygon expands across the stage and contracts as the selected content enters, while the crystal shifts to the side. Hash URLs, browser history, focus restoration, Escape and reduced-motion preference are supported. Content scrolls within the active view when necessary. No downloads, waitlist, or external product integrations are claimed. Google Fonts is optional; local fallbacks are defined.
+The home page presents a stable animated crystal with six individually focusable, labeled facet links. Each link opens a dedicated static content page with shared branding, header navigation and return/next links. No downloads, waitlist, or external product integrations are claimed. Google Fonts is optional; local fallbacks are defined.
+
+## Static subpages and original mark — 2026-10-20
+
+The six facet destinations are separate local HTML documents (`idee.html`, `launcher.html`, `engine.html`, `graphics.html`, `entwicklung.html`, and `system.html`) linked from the crystal and shared header. Each page has a home link and a next-page link. CSS cross-document View Transitions provide the crystal-style morph where the browser supports them; reduced-motion users receive no transition. All assets remain relative and work as a static `dist/` site.
+
+The Launcher source currently identifies `frontend/src/assets/brand/bismut-b.png` and its 512px variant as the 3D Bismut mark; its icon component describes these PNGs as the new B logo. No Bismut vector master exists in the inspected source. `dist/assets/bismut-logo.svg` therefore embeds the exact original 512px PNG as a data URI in an SVG wrapper. The appearance stays exact and self-contained, but its artwork remains raster rather than infinitely scalable vector paths. The Launcher repository remains read-only for this task.
 
 ## Crystal motion — 2026-10-20
 

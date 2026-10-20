@@ -83,7 +83,7 @@ function render(route) {
     });
     document.querySelector('#content-details').replaceChildren(...rows);
     const next = document.querySelector('#next-page');
-    next.dataset.route = page.next; next.href = `#${page.next}`;
+    next.dataset.route = page.next; next.href = `${page.next === 'vision' ? 'idee' : page.next === 'development' ? 'entwicklung' : page.next}.html`;
     next.textContent = `Weiter: ${pages[page.next].label} ↗`;
     document.querySelector('.content-scroll').scrollTop = 0;
     returnRoute = route;
@@ -132,12 +132,10 @@ async function navigate(route, { historyMode = 'push', focus = true } = {}) {
   body.classList.remove('is-morphing');
   if (focus) (route === 'home' ? menu.querySelector(`[data-route="${returnRoute}"]`) : title).focus({ preventScroll: true });
 }
-document.addEventListener('click', event => {
-  const link = event.target.closest('[data-route]');
-  if (!link || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-  event.preventDefault(); navigate(link.dataset.route);
+document.querySelector('#menu-toggle').addEventListener('click', () => {
+  if (destination !== 'home') { location.href = 'index.html'; return; }
+  menu.querySelector('.crystal-faces a')?.focus({ preventScroll: true });
 });
-document.querySelector('#menu-toggle').addEventListener('click', () => navigate(destination === 'home' ? returnRoute : 'home'));
 window.addEventListener('pointermove', event => {
   pointerX = (event.clientX / window.innerWidth - 0.5) * 2;
   pointerY = (event.clientY / window.innerHeight - 0.5) * 2;
@@ -148,8 +146,6 @@ menu.addEventListener('focusin', () => { crystalPaused = true; stopCrystalMotion
 menu.addEventListener('focusout', () => { crystalPaused = menu.contains(document.activeElement); syncCrystalMotion(); });
 document.addEventListener('visibilitychange', syncCrystalMotion);
 reduceMotion.addEventListener('change', syncCrystalMotion);
-window.addEventListener('keydown', event => { if (event.key === 'Escape' && destination !== 'home') navigate('home'); });
-window.addEventListener('popstate', () => navigate(location.hash.slice(1) || 'home', { historyMode: 'none' }));
-window.addEventListener('hashchange', () => navigate(location.hash.slice(1) || 'home', { historyMode: 'none' }));
-const initial = location.hash.slice(1);
+window.addEventListener('keydown', event => { if (event.key === 'Escape' && destination !== 'home') location.href = 'index.html'; });
+const initial = body.dataset.page || location.hash.slice(1);
 render(pages[initial] ? initial : 'home');
