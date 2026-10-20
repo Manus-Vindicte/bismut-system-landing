@@ -2,9 +2,15 @@
 
 Standalone presentation concept owned by this Site. Source and deployable static files live in `dist/`; `.openai/hosting.json` binds the private Site. No launcher, engine or graphics repository is modified. Main is this new Site's source branch.
 
-Design follows the supplied PrismHero reference: dark background, serif headline, faceted crystal, soft spectral highlights. The implementation uses a projected rotating icosahedron in Canvas 2D with translucent facets and clipped text offsets. It approximates refraction; it does not implement the reference's physical Three.js transmission material.
+Design follows the supplied PrismHero reference: dark background, serif headline, faceted crystal, soft spectral highlights. The crystal is now a stable SVG navigation surface with six individually focusable, labeled facets. Translucent gradients suggest glass; this does not implement the reference's physical Three.js transmission material.
 
-Navigation uses section anchors; module buttons expand accessible explanatory content. Reduced-motion preference stops continuous animation. No downloads, waitlist, or external product integrations are claimed. Google Fonts is optional; local fallbacks are defined.
+Navigation selects one view inside a fixed viewport. Facets route to idea, launcher, engine, graphics, development and system overview; inactive content is hidden/inert. A polygon expands across the stage and contracts as the selected content enters, while the crystal shifts to the side. Hash URLs, browser history, focus restoration, Escape and reduced-motion preference are supported. Content scrolls within the active view when necessary. No downloads, waitlist, or external product integrations are claimed. Google Fonts is optional; local fallbacks are defined.
+
+## Facet navigation — 2026-10-20
+
+User-requested change: replace the scrolling landing page with menu-selected content views and morph transitions. Owned files: `dist/index.html`, `dist/style.css`, `dist/app.js`, and this document. Starting branch `main`, clean baseline `f113764`. No product repository changes.
+
+Verification: `node --test tests/navigation.test.cjs` checks view selection, hidden/inert state, focus restoration, browser-history handling, Escape, reduced motion and rapid transition cancellation in a minimal DOM fixture. JavaScript syntax and whitespace checks also apply. These are logic tests, not browser or layout acceptance. Live browser verification of the user-opened file URL is blocked by the browser URL policy (only HTTP/HTTPS is permitted); no alternate route is used to bypass that restriction. Visual and real-browser interaction acceptance remain unverified.
 
 ## Content review — 2026-10-20
 
