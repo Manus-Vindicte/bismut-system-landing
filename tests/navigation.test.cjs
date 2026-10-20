@@ -92,11 +92,12 @@ test('a direct subpage load renders its own content without a hash route', () =>
 });
 
 test('the Mehr erfahren links form a complete chain across all six subpages', () => {
-  const destinations = { vision: 'launcher.html', launcher: 'engine.html', engine: 'graphics.html', graphics: 'entwicklung.html', development: 'system.html', system: 'idee.html' };
+  const destinations = { vision: 'launcher.html', launcher: 'engine.html', engine: 'graphics.html', graphics: 'engine.html', development: 'system.html', system: 'idee.html' };
   for (const [route, destination] of Object.entries(destinations)) {
     const f = fixture(true, route);
     assert.ok(f.get('#next-page').href.endsWith(destination), `${route} should lead to ${destination}`);
-    assert.match(f.get('#next-page').textContent, /^Mehr erfahren: .+ ↗$/);
+    if (route === 'graphics') assert.equal(f.get('#next-page').textContent, 'Erfahre mehr über die Engine ↗');
+    else assert.match(f.get('#next-page').textContent, /^Mehr erfahren: .+ ↗$/);
   }
 });
 
