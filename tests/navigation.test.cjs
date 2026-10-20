@@ -88,6 +88,16 @@ test('a direct subpage load renders its own content without a hash route', () =>
   assert.equal(f.get('#content-view').hidden, false);
   assert.match(f.get('#content-title').innerHTML, /Oberfläche/);
   assert.match(f.get('#next-page').href, /graphics\.html$/);
+  assert.equal(f.get('#next-page').textContent, 'Mehr erfahren: Graphics ↗');
+});
+
+test('the Mehr erfahren links form a complete chain across all six subpages', () => {
+  const destinations = { vision: 'launcher.html', launcher: 'engine.html', engine: 'graphics.html', graphics: 'entwicklung.html', development: 'system.html', system: 'idee.html' };
+  for (const [route, destination] of Object.entries(destinations)) {
+    const f = fixture(true, route);
+    assert.ok(f.get('#next-page').href.endsWith(destination), `${route} should lead to ${destination}`);
+    assert.match(f.get('#next-page').textContent, /^Mehr erfahren: .+ ↗$/);
+  }
 });
 
 test('rapid facet selection and return cancel stale transitions', async () => {

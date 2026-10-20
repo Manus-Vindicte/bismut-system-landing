@@ -84,7 +84,7 @@ function render(route) {
     document.querySelector('#content-details').replaceChildren(...rows);
     const next = document.querySelector('#next-page');
     next.dataset.route = page.next; next.href = `${page.next === 'vision' ? 'idee' : page.next === 'development' ? 'entwicklung' : page.next}.html`;
-    next.textContent = `Weiter: ${pages[page.next].label} ↗`;
+    next.textContent = `Mehr erfahren: ${pages[page.next].label} ↗`;
     document.querySelector('.content-scroll').scrollTop = 0;
     returnRoute = route;
   }
