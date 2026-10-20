@@ -4,13 +4,13 @@ Standalone presentation concept owned by this Site. Source and deployable static
 
 Design follows the supplied PrismHero reference: dark background, serif headline, faceted crystal, soft spectral highlights. The crystal is now a stable SVG navigation surface with six individually focusable, labeled facets. Translucent gradients suggest glass; this does not implement the reference's physical Three.js transmission material.
 
-The home page presents a stable animated crystal with six individually focusable, labeled facet links. Each link opens a dedicated static content page with shared branding, header navigation and return/next links. No downloads, waitlist, or external product integrations are claimed. Google Fonts is optional; local fallbacks are defined.
+The home page presents a stable animated crystal with six individually focusable, labeled facet links and direct Launcher, Engine and Graphics calls to action. Those three product pages have their own detailed overview, feature sections, development-state notes and links to related products. The idea, development and system pages remain supporting information pages. No downloads, waitlist, or external product integrations are claimed. Google Fonts is optional; local fallbacks are defined.
 
 ## Static subpages and original mark — 2026-10-20
 
 The six facet destinations are separate local HTML documents (`idee.html`, `launcher.html`, `engine.html`, `graphics.html`, `entwicklung.html`, and `system.html`) linked from the crystal and shared header. Each page has a home link and a contextual “Mehr erfahren” link to the next relevant page. The Graphics page calls out the Engine explicitly and links directly to its detail page. CSS cross-document View Transitions provide the crystal-style morph where the browser supports them; reduced-motion users receive no transition. All assets remain relative and work as a static `dist/` site.
 
-The idea page also presents three direct entry cards for the Launcher, Engine and Graphics pages, with a short description of each area.
+The idea page also presents three direct entry cards for the Launcher, Engine and Graphics pages, with a short description of each area. The homepage CTAs lead to the detailed product pages.
 
 The Launcher source currently identifies `frontend/src/assets/brand/bismut-b.png` and its 512px variant as the 3D Bismut mark; its icon component describes these PNGs as the new B logo. No Bismut vector master exists in the inspected source. `dist/assets/bismut-logo.svg` therefore embeds the exact original 512px PNG as a data URI in an SVG wrapper. The appearance stays exact and self-contained, but its artwork remains raster rather than infinitely scalable vector paths. The Launcher repository remains read-only for this task.
 

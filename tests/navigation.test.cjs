@@ -81,12 +81,20 @@ test('each crystal facet opens its own local HTML document with shared navigatio
   assert.match(fs.readFileSync(path.join(root, 'style.css'), 'utf8'), /@view-transition\{navigation:auto\}/);
 });
 
+test('the landing page has direct entry CTAs for each standalone product page', () => {
+  const home = fs.readFileSync(path.join(__dirname, '../dist/index.html'), 'utf8');
+  for (const [label, file] of [['Launcher entdecken', 'launcher.html'], ['Engine entdecken', 'engine.html'], ['Graphics entdecken', 'graphics.html']]) {
+    assert.match(home, new RegExp(`href="${file}">${label}`));
+  }
+  assert.match(fs.readFileSync(path.join(__dirname, '../dist/style.css'), 'utf8'), /\.product-entrances\{[^}]*pointer-events:auto/);
+});
+
 test('a direct subpage load renders its own content without a hash route', () => {
   const f = fixture(true, 'engine');
   assert.equal(f.body.dataset.view, 'engine');
   assert.equal(f.get('#home-view').hidden, true);
   assert.equal(f.get('#content-view').hidden, false);
-  assert.match(f.get('#content-title').innerHTML, /Oberfläche/);
+  assert.match(f.get('#content-title').innerHTML, /weiterdenkt/);
   assert.match(f.get('#next-page').href, /graphics\.html$/);
   assert.equal(f.get('#next-page').textContent, 'Mehr erfahren: Graphics ↗');
 });
@@ -99,6 +107,16 @@ test('the idea page shows direct entry cards for Launcher, Engine and Graphics',
   const grid = section.children[1];
   assert.deepEqual(grid.children.map(card => card.href), ['launcher.html', 'engine.html', 'graphics.html']);
   assert.deepEqual(grid.children.map(card => card.children[1].textContent), ['Welten und Modpacks', 'Laufzeit und Renderer', 'Grafik direkt im Spiel']);
+});
+
+test('Launcher, Engine and Graphics render as distinct detailed product pages', () => {
+  for (const route of ['launcher', 'engine', 'graphics']) {
+    const f = fixture(true, route);
+    assert.ok(f.get('#content-lead').textContent.length > 60, `${route} should have a product overview`);
+    assert.ok(f.get('#content-details').children.length >= 5, `${route} should expose product details`);
+    assert.equal(f.get('#related-pages').hidden, false, `${route} should link to related products`);
+    assert.equal(f.get('#next-page').href.endsWith('.html'), true);
+  }
 });
 
 test('the Mehr erfahren links form a complete chain across all six subpages', () => {

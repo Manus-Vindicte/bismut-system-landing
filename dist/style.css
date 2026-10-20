@@ -27,3 +27,9 @@ body[data-view="home"] #crystal{transform:translate3d(0,var(--crystal-float,0px)
 .related-card-description{font-size:10px;line-height:1.65;color:#b3a78f}
 .related-card-arrow{position:absolute;right:13px;top:13px;color:#b4cf7d;font-size:13px}
 @media(max-width:700px){.related-grid{grid-template-columns:1fr}.related-card{min-height:0;padding:14px}.related-card-description{max-width:42em}}
+
+.product-entrances{position:relative;z-index:6;pointer-events:auto;display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin-top:17px}
+.product-entrances a{display:inline-flex;align-items:center;gap:10px;padding:10px 15px;border:1px solid #d9c49b55;border-radius:999px;background:#ede4d308;color:#ede4d3;font-size:10px;transition:border-color .2s,background .2s,transform .2s}
+.product-entrances a:hover,.product-entrances a:focus-visible{border-color:#9dbb5e;background:#9dbb5e18;transform:translateY(-2px)}
+.product-entrances b{font-weight:400;color:#b4cf7d}
+@media(max-width:520px){.product-entrances{gap:6px;margin-top:13px}.product-entrances a{padding:8px 10px;font-size:9px}}
