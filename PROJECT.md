@@ -37,3 +37,17 @@ Corrected the name to Bismut in visible text, metadata and canvas. Content now i
 Read-only sources: Launcher `docs/PROGRAM_BOARD.md`, `docs/architecture/ADR-001_LAUNCHER_READY_TO_CONNECT.md`, `docs/architecture/update-and-publishing.md`, and existing ModpackCreator source; Engine `README.md`, `docs/PROGRAM_BOARD.md`, `.docs/ENGINE_OWNERSHIP_BOUNDARY_V1.md` and `src/runtime-control-process.mjs`; Graphics Mod `README.md`, `modinfo.json`, and `src/BismutGraphicsModSystem.cs`. Deployed content contains independently written product summaries only, excluding local evidence, third-party source and machine details.
 
 Reviewed revisions: Launcher `a9ade3287f73c1ac1320e8aca96109a221e71705`, Engine `25cb0b182ab9ebb39d5eeb802c11a81c48e6132d`, Graphics Mod `5386e488dee5b86b8e3354198a5cb9374eb0a582`. Product repositories were not modified. Launcher contained pre-existing work in progress. Documents vary in age, so no release readiness or universal rendering capability is inferred.
+
+## Ecosystem integration — Forge, Lib System, Library Explorer (PT-BISMUT-WEBSITE-ECOSYSTEM-INTEGRATION-V1)
+
+Integrated Forge and Bismut Lib System into the existing information
+architecture without changing the crystal navigation (six facets), animations,
+design system or existing product pages.
+
+- New product sections on the home page: Forge and Lib System.
+- New product pages: `forge.html`, `libsystem.html` (rendered via `app.js`).
+- New Library Explorer page: `library-explorer.html` with `explorer.js`,
+  loading the static JSON export of Bismut Lib System.
+- Data contract documented in `DATA_CONTRACT.md`; catalog copied into `dist/`.
+- Accessibility: semantic headings, labels, live region for result count;
+  keyboard navigation preserved. Responsive grid for explorer cards.

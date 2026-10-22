@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="de">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0c0906"><meta name="description" content="Bismut Library Explorer — durchsuche den statischen Katalog der Bismut Lib System Bibliotheken."><title>Bismut Library Explorer</title><link rel="stylesheet" href="style.css"></head>
+<body data-view="home" data-page="library">
+<header><a class="brand" href="index.html" data-route="home" aria-label="Bismut System Startseite"><img class="brand-logo" src="assets/bismut-logo.svg" alt=""><span>BISMUT<small>SYSTEM</small></span></a><nav aria-label="Hauptnavigation"><a href="launcher.html" data-route="launcher">Launcher</a><a href="engine.html" data-route="engine">Engine</a><a href="graphics.html" data-route="graphics">Graphics</a><a href="forge.html" data-route="forge">Forge</a><a href="libsystem.html" data-route="libsystem">Lib System</a><a href="library-explorer.html" data-route="library" aria-current="page">Library Explorer</a></nav><button class="menu-button" id="menu-toggle" aria-controls="facet-navigation" aria-expanded="true"><span class="menu-symbol">◇</span><span id="menu-label">Menü</span></button></header>
+<main id="stage">
+<section class="content-view" id="content-view" aria-labelledby="content-title" tabindex="-1"><div class="content-scroll"><div class="page-index"><span>LIBRARY EXPLORER</span><span> BISMUT SYSTEM / VINTAGE STORY</span></div><div class="content-body">
+<p class="eyebrow">BISMUT LIB SYSTEM</p>
+<h2 id="content-title" tabindex="-1">Library Explorer</h2>
+<p class="content-lead" id="content-lead">Durchsuche den statischen Katalog der Bismut Lib System Bibliotheken. Filtere nach Seite, Fähigkeit oder Tags.</p>
+<div id="explorer" class="library-explorer">
+  <div class="explorer-controls">
+    <label for="explorer-search">Suche</label>
+    <input id="explorer-search" type="search" placeholder="Name, Autor, Tag, Fähigkeit …" autocomplete="off">
+    <label for="explorer-side">Seite</label>
+    <select id="explorer-side"><option value="">Alle</option><option value="both">both</option><option value="client">client</option><option value="server">server</option></select>
+    <span id="explorer-count" aria-live="polite"></span>
+  </div>
+  <div id="explorer-list" class="explorer-list" role="list"></div>
+</div>
+<div class="content-actions"><a href="index.html" data-route="home" class="back-link">↖ Zurück zum Kristall</a><a href="libsystem.html" data-route="libsystem" class="next-link">Mehr erfahren: Lib System ↗</a></div>
+</div></div></section>
+</main>
+<footer><span>LIBRARY EXPLORER</span><span>DEINE WELT. DEIN SETUP.</span><span class="development-note">IN ENTWICKLUNG</span></footer>
+<script src="explorer.js"></script>
+</body></html>
