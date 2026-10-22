@@ -5,16 +5,16 @@
 Static JSON export produced by `bismut-lib-system`:
 `catalog/bismut-libraries.v1.json` (schemaVersion `1.0`).
 
-## Website copy
+## Website copy (canonical)
 
-The website ships a copy under `dist/` (multiple candidate paths for robust
-relative fetch):
+The website ships exactly one copy, the canonical catalog path:
 
 - `dist/bismut-libraries.v1.json`
-- `dist/libraries.v1.json`
-- `dist/data/bismut-libraries.v1.json`
-- `dist/data/libraries.v1.json`
-- `dist/catalog/bismut-libraries.v1.json`
+
+No redundant copies. `explorer.js` fetches only this path. This prevents
+schema drift between copies. The website remains a consumer of the upstream
+`bismut-lib-system` export; the copy is refreshed manually when the upstream
+export changes.
 
 ## Top-level shape
 
