@@ -104,6 +104,7 @@ function render(route) {
     next.dataset.route = page.next; next.href = `${page.next === 'vision' ? 'idee' : page.next === 'development' ? 'entwicklung' : page.next}.html`;
     next.textContent = route === 'graphics' ? 'Erfahre mehr über die Engine ↗' : `Mehr erfahren: ${pages[page.next].label} ↗`;
     document.querySelector('.content-scroll').scrollTop = 0;
+    if (typeof window.renderBismutSubpageTemplate === 'function') window.renderBismutSubpageTemplate(route);
     returnRoute = route;
   }
   document.querySelector('#view-status').textContent = isHome ? 'SECHS FACETTEN. EIN SYSTEM.' : `${pages[route].number} / ${pages[route].label.toUpperCase()}`;
