@@ -74,6 +74,13 @@
       card.appendChild(compat);
     }
 
+    if (e.provenance) {
+      const prov = document.createElement('p');
+      prov.className = 'explorer-provenance';
+      prov.textContent = 'Provenance: ' + e.provenance;
+      card.appendChild(prov);
+    }
+
     const tags = (e.tags || []).concat(e.capabilities || []);
     if (tags.length) {
       const tagWrap = document.createElement('div');

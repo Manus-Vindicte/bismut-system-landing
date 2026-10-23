@@ -47,8 +47,20 @@ export changes.
 | modDbUrl | string | Mod DB URL (may be empty) |
 | homepageUrl | string | homepage URL (may be empty) |
 | lastVerified | string | ISO date |
+| provenance | string | origin/provenance (e.g. `moddb-api-v1`), optional but displayed for attribution |
+
+## Import (consumer side)
+
+Fresh BLS artifacts are PascalCase (`SchemaVersion`, `Entries`, ...). The website
+consumes via `scripts/import-catalog.mjs`, which validates, transforms to the
+camelCase contract, checks unique IDs, and atomically replaces
+`dist/bismut-libraries.v1.json`:
+
+```
+node scripts/import-catalog.mjs <path-to-bls-export/bismut-libraries.v1.json>
+```
 
 ## Consumer
 
-`dist/explorer.js` fetches the first available candidate and renders a
+`dist/explorer.js` fetches the canonical path and renders a
 searchable/filterable list. No backend, no network beyond static files.

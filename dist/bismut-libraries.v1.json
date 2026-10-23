@@ -1,396 +1,431 @@
 {
   "schemaVersion": "1.0",
+  "generatedBy": "bismut-lib-system",
+  "generatedAt": "2026-10-23",
   "entries": [
     {
-      "tags": [
-        "Library",
-        "Config"
-      ],
-      "author": "VSCustodian / The Insanity God",
-      "modIdStr": "configlib",
-      "side": "both",
-      "lastVerified": "2026-10-22",
-      "homepageUrl": "https://discord.com/channels/302152934249070593/1184613006055854121",
-      "vsCompatibility": "^1.20.0",
-      "name": "Config lib",
-      "modDbUrl": "https://mods.vintagestory.at/show/mod/1783",
-      "id": "moddb:configlib",
-      "capabilities": [
-        "config"
-      ],
-      "dependencies": [
-        "vsimgui 1.2.0"
-      ],
-      "version": "1.13.2",
-      "modId": "1783",
-      "license": "unknown",
-      "sourceUrl": "https://github.com/maltiez2/vsmod_configlib"
-    },
-    {
-      "tags": [
-        "Library",
-        "Config"
-      ],
-      "author": "dizzyd",
-      "modIdStr": "configkit",
-      "side": "both",
-      "lastVerified": "2026-10-22",
-      "vsCompatibility": "^1.22.0",
-      "name": "ConfigKit",
-      "modDbUrl": "https://mods.vintagestory.at/show/mod/11506",
-      "id": "moddb:configkit",
-      "capabilities": [
-        "config"
-      ],
-      "dependencies": [
-        "game 1.22.0"
-      ],
-      "version": "1.5.2",
-      "modId": "11506",
-      "license": "unknown",
-      "sourceUrl": "https://github.com/dizzyd/configkit"
-    },
-    {
+      "id": "moddb:cliententityailib",
+      "name": "Client-side Entity AI API Library",
+      "modId": "",
+      "modIdStr": "cliententityailib",
+      "author": "traugdor",
+      "version": "1.0.3",
+      "side": "client",
+      "sourceUrl": "https://github.com/traugdor/ClientEntityAILib",
+      "homepageUrl": "",
       "tags": [
         "Library"
       ],
-      "author": "DArkHekRoMaNT",
-      "modIdStr": "commonlib",
-      "side": "both",
+      "capabilities": [
+        "ai"
+      ],
+      "dependencies": [],
+      "vsCompatibility": "unknown",
+      "license": "unknown",
+      "provenance": "moddb-api-v1",
       "lastVerified": "2026-10-22",
-      "vsCompatibility": "^1.21.0",
-      "name": "Common Lib",
-      "modDbUrl": "https://mods.vintagestory.at/show/mod/1065",
+      "modDbUrl": ""
+    },
+    {
+      "id": "moddb:commonapis",
+      "name": "Common APIs",
+      "modId": "",
+      "modIdStr": "commonapis",
+      "author": "LubieKakao1212",
+      "version": "0.2.0",
+      "side": "both",
+      "sourceUrl": "https://github.com/LubieKakao1212/CommonAPIs",
+      "homepageUrl": "",
+      "tags": [
+        "Library"
+      ],
+      "capabilities": [
+        "api"
+      ],
+      "dependencies": [],
+      "vsCompatibility": "unknown",
+      "license": "unknown",
+      "provenance": "moddb-api-v1",
+      "lastVerified": "2026-10-22",
+      "modDbUrl": ""
+    },
+    {
       "id": "moddb:commonlib",
+      "name": "Common Lib",
+      "modId": "1065",
+      "modIdStr": "commonlib",
+      "author": "DArkHekRoMaNT",
+      "version": "2.8.0",
+      "side": "both",
+      "sourceUrl": "https://github.com/DArkHekRoMaNT/CommonLib",
+      "homepageUrl": "",
+      "tags": [
+        "Library"
+      ],
       "capabilities": [
         "utility"
       ],
       "dependencies": [
         "game 1.21.0"
       ],
-      "version": "2.8.0",
-      "modId": "1065",
+      "vsCompatibility": "^1.21.0",
       "license": "unknown",
-      "sourceUrl": "https://github.com/DArkHekRoMaNT/CommonLib"
+      "provenance": "moddb-api-v1",
+      "lastVerified": "2026-10-22",
+      "modDbUrl": "https://mods.vintagestory.at/show/mod/1065"
     },
     {
+      "id": "moddb:configkit",
+      "name": "ConfigKit",
+      "modId": "11506",
+      "modIdStr": "configkit",
+      "author": "dizzyd",
+      "version": "1.5.2",
+      "side": "both",
+      "sourceUrl": "https://github.com/dizzyd/configkit",
+      "homepageUrl": "",
+      "tags": [
+        "Library",
+        "Config"
+      ],
+      "capabilities": [
+        "config"
+      ],
+      "dependencies": [
+        "game 1.22.0"
+      ],
+      "vsCompatibility": "^1.22.0",
+      "license": "unknown",
+      "provenance": "moddb-api-v1",
+      "lastVerified": "2026-10-22",
+      "modDbUrl": "https://mods.vintagestory.at/show/mod/11506"
+    },
+    {
+      "id": "moddb:configlib",
+      "name": "Config lib",
+      "modId": "1783",
+      "modIdStr": "configlib",
+      "author": "VSCustodian / The Insanity God",
+      "version": "1.13.2",
+      "side": "both",
+      "sourceUrl": "https://github.com/maltiez2/vsmod_configlib",
+      "homepageUrl": "https://discord.com/channels/302152934249070593/1184613006055854121",
+      "tags": [
+        "Library",
+        "Config"
+      ],
+      "capabilities": [
+        "config"
+      ],
+      "dependencies": [
+        "vsimgui 1.2.0"
+      ],
+      "vsCompatibility": "^1.20.0",
+      "license": "unknown",
+      "provenance": "moddb-api-v1",
+      "lastVerified": "2026-10-22",
+      "modDbUrl": "https://mods.vintagestory.at/show/mod/1783"
+    },
+    {
+      "id": "moddb:cz4dll",
+      "name": "cz4library",
+      "modId": "",
+      "modIdStr": "cz4dll",
+      "author": "DejFidOFF",
+      "version": "1.0.6",
+      "side": "both",
+      "sourceUrl": "",
+      "homepageUrl": "",
       "tags": [
         "Library"
       ],
-      "author": "TheInsanityGod",
-      "modIdStr": "insanitylib",
-      "side": "both",
-      "lastVerified": "2026-10-22",
+      "capabilities": [
+        "cz4"
+      ],
+      "dependencies": [],
       "vsCompatibility": "unknown",
-      "name": "Insanity Lib",
-      "modDbUrl": "https://mods.vintagestory.at/show/mod/3966",
+      "license": "unknown",
+      "provenance": "moddb-api-v1",
+      "lastVerified": "2026-10-22",
+      "modDbUrl": ""
+    },
+    {
+      "id": "moddb:effectlib",
+      "name": "Effectlib",
+      "modId": "",
+      "modIdStr": "effectlib",
+      "author": "llama3013",
+      "version": "1.2.1",
+      "side": "both",
+      "sourceUrl": "https://github.com/Llama3013/vs-effectlib",
+      "homepageUrl": "",
+      "tags": [
+        "Library"
+      ],
+      "capabilities": [
+        "effects"
+      ],
+      "dependencies": [],
+      "vsCompatibility": "unknown",
+      "license": "unknown",
+      "provenance": "moddb-api-v1",
+      "lastVerified": "2026-10-22",
+      "modDbUrl": ""
+    },
+    {
+      "id": "moddb:explosivelib",
+      "name": "ExplosiveLib",
+      "modId": "",
+      "modIdStr": "explosivelib",
+      "author": "RainbowFresh",
+      "version": "1.0.0",
+      "side": "both",
+      "sourceUrl": "https://github.com/ErinaSugino/ExplosiveLib",
+      "homepageUrl": "",
+      "tags": [
+        "Library"
+      ],
+      "capabilities": [
+        "explosives"
+      ],
+      "dependencies": [],
+      "vsCompatibility": "unknown",
+      "license": "unknown",
+      "provenance": "moddb-api-v1",
+      "lastVerified": "2026-10-22",
+      "modDbUrl": ""
+    },
+    {
+      "id": "moddb:foundationslib",
+      "name": "Foundations Lib",
+      "modId": "",
+      "modIdStr": "foundationslib",
+      "author": "MaskOfLoki",
+      "version": "1.0.2",
+      "side": "both",
+      "sourceUrl": "https://gitlab.com/CriochDev/foundationslib",
+      "homepageUrl": "",
+      "tags": [
+        "Library"
+      ],
+      "capabilities": [
+        "foundation"
+      ],
+      "dependencies": [],
+      "vsCompatibility": "unknown",
+      "license": "unknown",
+      "provenance": "moddb-api-v1",
+      "lastVerified": "2026-10-22",
+      "modDbUrl": ""
+    },
+    {
       "id": "moddb:insanitylib",
+      "name": "Insanity Lib",
+      "modId": "3966",
+      "modIdStr": "insanitylib",
+      "author": "TheInsanityGod",
+      "version": "2.1.5",
+      "side": "both",
+      "sourceUrl": "https://github.com/InsanityGod/InsanityLib",
+      "homepageUrl": "",
+      "tags": [
+        "Library"
+      ],
       "capabilities": [
         "utility"
       ],
       "dependencies": [
         "game (unversioned)"
       ],
-      "version": "2.1.5",
-      "modId": "3966",
+      "vsCompatibility": "unknown",
       "license": "unknown",
-      "sourceUrl": "https://github.com/InsanityGod/InsanityLib"
+      "provenance": "moddb-api-v1",
+      "lastVerified": "2026-10-22",
+      "modDbUrl": "https://mods.vintagestory.at/show/mod/3966"
     },
     {
-      "tags": [
-        "Library"
-      ],
-      "author": "LubieKakao1212",
-      "modIdStr": "commonapis",
-      "side": "both",
-      "lastVerified": "2026-10-22",
-      "vsCompatibility": "unknown",
-      "name": "Common APIs",
-      "modDbUrl": "",
-      "id": "moddb:commonapis",
-      "capabilities": [
-        "api"
-      ],
-      "dependencies": [],
-      "version": "0.2.0",
-      "modId": "",
-      "license": "unknown",
-      "sourceUrl": "https://github.com/LubieKakao1212/CommonAPIs"
-    },
-    {
-      "tags": [
-        "Library"
-      ],
-      "author": "MaskOfLoki",
-      "modIdStr": "foundationslib",
-      "side": "both",
-      "lastVerified": "2026-10-22",
-      "vsCompatibility": "unknown",
-      "name": "Foundations Lib",
-      "modDbUrl": "",
-      "id": "moddb:foundationslib",
-      "capabilities": [
-        "foundation"
-      ],
-      "dependencies": [],
-      "version": "1.0.2",
-      "modId": "",
-      "license": "unknown",
-      "sourceUrl": "https://gitlab.com/CriochDev/foundationslib"
-    },
-    {
-      "tags": [
-        "Library"
-      ],
-      "author": "azurempress",
-      "modIdStr": "litgroundstoragelib",
-      "side": "both",
-      "lastVerified": "2026-10-22",
-      "vsCompatibility": "unknown",
-      "name": "LitGroundStorageLib",
-      "modDbUrl": "",
-      "id": "moddb:litgroundstoragelib",
-      "capabilities": [
-        "storage"
-      ],
-      "dependencies": [],
-      "version": "1.0.0",
-      "modId": "",
-      "license": "unknown",
-      "sourceUrl": "https://github.com/pmarincak/litgroundstoragelib"
-    },
-    {
-      "tags": [
-        "Library"
-      ],
-      "author": "Zaldaryon",
-      "modIdStr": "worldgenlib",
-      "side": "server",
-      "lastVerified": "2026-10-22",
-      "vsCompatibility": "unknown",
-      "name": "WorldgenLib",
-      "modDbUrl": "",
-      "id": "moddb:worldgenlib",
-      "capabilities": [
-        "worldgen"
-      ],
-      "dependencies": [],
-      "version": "0.1.0",
-      "modId": "",
-      "license": "unknown",
-      "sourceUrl": "https://github.com/Zaldaryon/WorldgenLib"
-    },
-    {
-      "tags": [
-        "Library"
-      ],
-      "author": "Talhaprima",
-      "modIdStr": "lexiconlib",
-      "side": "both",
-      "lastVerified": "2026-10-22",
-      "vsCompatibility": "unknown",
-      "name": "LexiconLib",
-      "modDbUrl": "",
       "id": "moddb:lexiconlib",
+      "name": "LexiconLib",
+      "modId": "",
+      "modIdStr": "lexiconlib",
+      "author": "Talhaprima",
+      "version": "0.4.3",
+      "side": "both",
+      "sourceUrl": "",
+      "homepageUrl": "",
+      "tags": [
+        "Library"
+      ],
       "capabilities": [
         "lexicon"
       ],
       "dependencies": [],
-      "version": "0.4.3",
-      "modId": "",
+      "vsCompatibility": "unknown",
       "license": "unknown",
-      "sourceUrl": ""
+      "provenance": "moddb-api-v1",
+      "lastVerified": "2026-10-22",
+      "modDbUrl": ""
     },
     {
-      "tags": [
-        "Library"
-      ],
-      "author": "llama3013",
-      "modIdStr": "effectlib",
-      "side": "both",
-      "lastVerified": "2026-10-22",
-      "vsCompatibility": "unknown",
-      "name": "Effectlib",
-      "modDbUrl": "",
-      "id": "moddb:effectlib",
-      "capabilities": [
-        "effects"
-      ],
-      "dependencies": [],
-      "version": "1.2.1",
+      "id": "moddb:litgroundstoragelib",
+      "name": "LitGroundStorageLib",
       "modId": "",
-      "license": "unknown",
-      "sourceUrl": "https://github.com/Llama3013/vs-effectlib"
-    },
-    {
-      "tags": [
-        "Library"
-      ],
-      "author": "Coriaender",
-      "modIdStr": "shaderpatcheslib",
-      "side": "client",
-      "lastVerified": "2026-10-22",
-      "vsCompatibility": "unknown",
-      "name": "ShaderPatchesLib",
-      "modDbUrl": "",
-      "id": "moddb:shaderpatcheslib",
-      "capabilities": [
-        "shaders"
-      ],
-      "dependencies": [],
-      "version": "0.0.2",
-      "modId": "",
-      "license": "unknown",
-      "sourceUrl": "https://codeberg.org/Corble/ShaderPatchesLib"
-    },
-    {
-      "tags": [
-        "Library"
-      ],
-      "author": "RainbowFresh",
-      "modIdStr": "explosivelib",
-      "side": "both",
-      "lastVerified": "2026-10-22",
-      "vsCompatibility": "unknown",
-      "name": "ExplosiveLib",
-      "modDbUrl": "",
-      "id": "moddb:explosivelib",
-      "capabilities": [
-        "explosives"
-      ],
-      "dependencies": [],
+      "modIdStr": "litgroundstoragelib",
+      "author": "azurempress",
       "version": "1.0.0",
-      "modId": "",
-      "license": "unknown",
-      "sourceUrl": "https://github.com/ErinaSugino/ExplosiveLib"
-    },
-    {
+      "side": "both",
+      "sourceUrl": "https://github.com/pmarincak/litgroundstoragelib",
+      "homepageUrl": "",
       "tags": [
         "Library"
       ],
-      "author": "traugdor",
-      "modIdStr": "cliententityailib",
-      "side": "client",
-      "lastVerified": "2026-10-22",
-      "vsCompatibility": "unknown",
-      "name": "Client-side Entity AI API Library",
-      "modDbUrl": "",
-      "id": "moddb:cliententityailib",
       "capabilities": [
-        "ai"
+        "storage"
       ],
       "dependencies": [],
-      "version": "1.0.3",
-      "modId": "",
+      "vsCompatibility": "unknown",
       "license": "unknown",
-      "sourceUrl": "https://github.com/traugdor/ClientEntityAILib"
+      "provenance": "moddb-api-v1",
+      "lastVerified": "2026-10-22",
+      "modDbUrl": ""
     },
     {
+      "id": "moddb:ltolibplus",
+      "name": "LTO Lib plus",
+      "modId": "",
+      "modIdStr": "ltolibplus",
+      "author": "DeadyKass_",
+      "version": "1.0.0",
+      "side": "both",
+      "sourceUrl": "",
+      "homepageUrl": "",
       "tags": [
         "Library"
       ],
-      "author": "DeadyKass_",
-      "modIdStr": "ltolibplus",
-      "side": "both",
-      "lastVerified": "2026-10-22",
-      "vsCompatibility": "unknown",
-      "name": "LTO Lib plus",
-      "modDbUrl": "",
-      "id": "moddb:ltolibplus",
       "capabilities": [
         "lto"
       ],
       "dependencies": [],
-      "version": "1.0.0",
-      "modId": "",
+      "vsCompatibility": "unknown",
       "license": "unknown",
-      "sourceUrl": ""
+      "provenance": "moddb-api-v1",
+      "lastVerified": "2026-10-22",
+      "modDbUrl": ""
     },
     {
+      "id": "moddb:masterylibrary",
+      "name": "Mastery Library",
+      "modId": "",
+      "modIdStr": "masterylibrary",
+      "author": "Yoldovahkriid",
+      "version": "1.0.0-rc.4",
+      "side": "both",
+      "sourceUrl": "https://github.com/Yoldovahkriid/MasteryLibrary",
+      "homepageUrl": "",
       "tags": [
         "Library"
       ],
-      "author": "Yoldovahkriid",
-      "modIdStr": "masterylibrary",
-      "side": "both",
-      "lastVerified": "2026-10-22",
-      "vsCompatibility": "unknown",
-      "name": "Mastery Library",
-      "modDbUrl": "",
-      "id": "moddb:masterylibrary",
       "capabilities": [
         "mastery"
       ],
       "dependencies": [],
-      "version": "1.0.0-rc.4",
-      "modId": "",
+      "vsCompatibility": "unknown",
       "license": "unknown",
-      "sourceUrl": "https://github.com/Yoldovahkriid/MasteryLibrary"
+      "provenance": "moddb-api-v1",
+      "lastVerified": "2026-10-22",
+      "modDbUrl": ""
     },
     {
-      "tags": [
-        "Library"
-      ],
-      "author": "DejFidOFF",
-      "modIdStr": "cz4dll",
-      "side": "both",
-      "lastVerified": "2026-10-22",
-      "vsCompatibility": "unknown",
-      "name": "cz4library",
-      "modDbUrl": "",
-      "id": "moddb:cz4dll",
-      "capabilities": [
-        "cz4"
-      ],
-      "dependencies": [],
-      "version": "1.0.6",
-      "modId": "",
-      "license": "unknown",
-      "sourceUrl": ""
-    },
-    {
-      "tags": [
-        "Library"
-      ],
-      "author": "RowanSkie",
-      "modIdStr": "rowantreelib",
-      "side": "both",
-      "lastVerified": "2026-10-22",
-      "vsCompatibility": "unknown",
-      "name": "Rowantree Lib",
-      "modDbUrl": "",
       "id": "moddb:rowantreelib",
+      "name": "Rowantree Lib",
+      "modId": "",
+      "modIdStr": "rowantreelib",
+      "author": "RowanSkie",
+      "version": "2.1.0",
+      "side": "both",
+      "sourceUrl": "",
+      "homepageUrl": "",
+      "tags": [
+        "Library"
+      ],
       "capabilities": [
         "rowantree"
       ],
       "dependencies": [],
-      "version": "2.1.0",
-      "modId": "",
+      "vsCompatibility": "unknown",
       "license": "unknown",
-      "sourceUrl": ""
+      "provenance": "moddb-api-v1",
+      "lastVerified": "2026-10-22",
+      "modDbUrl": ""
     },
     {
+      "id": "moddb:shaderpatcheslib",
+      "name": "ShaderPatchesLib",
+      "modId": "",
+      "modIdStr": "shaderpatcheslib",
+      "author": "Coriaender",
+      "version": "0.0.2",
+      "side": "client",
+      "sourceUrl": "https://codeberg.org/Corble/ShaderPatchesLib",
+      "homepageUrl": "",
       "tags": [
         "Library"
       ],
-      "author": "Pandas",
-      "modIdStr": "vintagecordapi",
-      "side": "server",
-      "lastVerified": "2026-10-22",
+      "capabilities": [
+        "shaders"
+      ],
+      "dependencies": [],
       "vsCompatibility": "unknown",
-      "name": "VintageCordAPI",
-      "modDbUrl": "",
+      "license": "unknown",
+      "provenance": "moddb-api-v1",
+      "lastVerified": "2026-10-22",
+      "modDbUrl": ""
+    },
+    {
       "id": "moddb:vintagecordapi",
+      "name": "VintageCordAPI",
+      "modId": "",
+      "modIdStr": "vintagecordapi",
+      "author": "Pandas",
+      "version": "1.1.1",
+      "side": "server",
+      "sourceUrl": "",
+      "homepageUrl": "",
+      "tags": [
+        "Library"
+      ],
       "capabilities": [
         "discord"
       ],
       "dependencies": [],
-      "version": "1.1.1",
-      "modId": "",
+      "vsCompatibility": "unknown",
       "license": "unknown",
-      "sourceUrl": ""
+      "provenance": "moddb-api-v1",
+      "lastVerified": "2026-10-22",
+      "modDbUrl": ""
+    },
+    {
+      "id": "moddb:worldgenlib",
+      "name": "WorldgenLib",
+      "modId": "",
+      "modIdStr": "worldgenlib",
+      "author": "Zaldaryon",
+      "version": "0.1.0",
+      "side": "server",
+      "sourceUrl": "https://github.com/Zaldaryon/WorldgenLib",
+      "homepageUrl": "",
+      "tags": [
+        "Library"
+      ],
+      "capabilities": [
+        "worldgen"
+      ],
+      "dependencies": [],
+      "vsCompatibility": "unknown",
+      "license": "unknown",
+      "provenance": "moddb-api-v1",
+      "lastVerified": "2026-10-22",
+      "modDbUrl": ""
     }
-  ],
-  "generatedBy": "bismut-lib-system",
-  "generatedAt": "2026-10-23"
+  ]
 }
